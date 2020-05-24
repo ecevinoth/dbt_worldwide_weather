@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+    - name: stg_stations
+      description: "source stations list"
+      columns:
+          - name: usaf
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+    - name: stg_gsod2016
+      description: "stg_gsod2016 records"
+      columns:
+          - name: year
+            description: "list of year"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ['2016']
+    - name: transformed_station
+      description: "transformed_station records"
+      columns:
+          - name: name
+            description: "name"
+            tests:
+                - not_null
+    - name: filtered_station
+      description: "filtered station records"
